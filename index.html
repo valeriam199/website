@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fox Findings</title>
+
+        <link rel="stylesheet" href="style.css" /> 
+    </head>
+
+    <body>
+        <header>
+            <img src="pictures/fox_glasses.png" class="header-img left">
+            <div class="headertitle">
+                <h1>FOX FINDINGS</h1>
+                <h3>Das Natur-Beobachtungs-Portal</h3>
+            </div>
+            <img src="pictures/fox_notes.png" class="header-img right">
+        </header>
+
+        <!--NAV TAB-->
+        <nav>
+            <div class="navigation-left">
+                <img src="pictures/fox_hello.png" class="nav-img">
+            </div>
+            <div class="navigation-center">
+                <a href="index.html">Startseite</a>
+                <a href="login.html">Login & Registrierung</a>
+                <a href="impressum.html">Impressum & Kontakt</a>
+            </div>
+        </nav>
+
+        <main>
+            <!--MAP SECTION-->
+            <h2>Beobachtungen im Volkspark Friedrichshain</h2>
+            <section class="map">
+                <a href="#obs1" class="marker" style="top:39%; left:53%;" data-observation="obs1"></a>
+                <a href="#obs2" class="marker" style="top:53%; left:43%;" data-observation="obs2"></a>
+                <a href="#obs3" class="marker" style="top:25%; left:80%;" data-observation="obs3"></a>
+                <a href="#obs4" class="marker" style="top:33%; left:35%;" data-observation="obs4"></a>
+                <a href="#obs5" class="marker" style="top:77%; left:63%" data-observation="obs5"></a>
+                <a href="#obs6" class="marker" style="top:15%; left:47%" data-observation="obs6"></a>
+            </section>
+
+            <!--KATEGORIEN UND SUCHE-->    
+            <section class="search-add">
+                <section class="add-observation">
+                    <button class="button2">Beobachtung hinzufügen</button>
+                </section>
+                <div class="search">
+                    <form action="#" method="get">
+                        <input type="text" placeholder="Suchbegriff eingeben" class="eingabefeld">
+                        <input type="submit" value="Suchen" class="button2">   
+                    </form>
+                </div>
+            </section>
+
+            <div class="categories">
+                <table class="table1">
+                    <tr>
+                        <td class="tabletitle">Kategorien </td>
+                        <td class="inhalt"><label data-category="all">Alle</label></td>
+
+                        <td class="inhalt"><label data-category="insekten">Insekten</label></td>
+                        <td class="inhalt"><label data-category="pflanzen">Pflanzen</label></td>
+                        <td class="inhalt"><label data-category="pilze">Pilze</label></td>
+                        <td class="inhalt"><label data-category="saeugetiere">Säugetiere</label></td>
+                        <td class="inhalt"><label data-category="spinnentiere">Spinnentiere</label></td>
+                        <td class="inhalt"><label data-category="voegel">Vögel</label></td>
+                    </tr>
+                </table>
+            </div>
+
+            
+            <!--OBSERVATION SECTION-->
+            <section class="observations">
+                <div class="observation-card" data-category="voegel" id="obs1">
+                    <img src="pictures/Mandarinente.jpg" alt="Mandarinente">
+                    <h4>Mandarinente</h4>
+                    <div class="details">
+                        <p>Lateinischer Name: Aix galericulata</p>
+                        <p>Gesichtet am 10. April 2020</p>
+                        <p>Art: Vogel</p>
+                    </div>
+                </div>
+
+                <div class="observation-card" data-category="insekten" id="obs2">
+                    <img src="pictures/Admiral.jpg" alt="Admiral">
+                    <h4>Admiral</h4>
+                    <div class="details">
+                        <p>Lateinischer Name: Pyrameis atalanta</p>
+                        <p>Gesichtet am 23. August 2020 </p>
+                        <p>Art: Insekt</p>
+                    </div>
+                </div>
+
+                <div class="observation-card" data-category="pflanzen" id="obs3">
+                    <img src="pictures/Eibe.jpg" alt="Eibe">
+                    <h4>Eibe</h4>
+                    <div class="details">
+                        <p>Lateinischer Name: Taxus baccata</p>
+                        <p>Gesichtet am 28. April 2025 </p>
+                        <p>Art: Pflanze</p>
+                    </div>
+                </div>
+
+                <div class="observation-card" data-category="saeugetiere" id="obs4">
+                    <img src="pictures/Eurasisches_Eichhoernchen.jpg" alt="eichhoernchen">
+                    <h4>Eurasisches Eichhörnchen</h4>
+                    <div class="details">
+                        <p>Lateinischer Name: </p>
+                        <p>Gesichtet am 22. Oktober 2023 </p>
+                        <p>Art: Säugetier</p>
+                    </div>
+                </div>
+
+                <div class="observation-card" data-category="insekten" id="obs5">
+                    <img src="pictures/kleiner_frostspanner.jpeg" alt="frostspanner">
+                    <h4>Kleiner Frostspanner</h4>
+                    <div class="details">
+                        <p>Lateinischer Name: Operophtera brumata</p>
+                        <p>Gesichtet am 15. November 2023 </p>
+                        <p>Art: Insekt</p>
+                    </div>
+                </div>
+
+                <div class="observation-card" data-category="pilze" id="obs6">
+                    <img src="pictures/Großer_Holztintling.jpeg" alt="Tingling">
+                    <h4>Tingling</h4>
+                    <div class="details">
+                        <p>Lateinischer Name: Coprinus sensu lato</p>
+                        <p>Gesichtet am 06. August 2023 </p>
+                        <p>Art: Pilz</p>
+                    </div>
+                </div>
+            </section>
+        
+        </main>
+        <footer>
+            <p>&copy; 2025 Valeria Muggironi</p>
+            <p>Quelle: <a href="https://www.inaturalist.org/observations?subview=map" target="_blank">inaturalist</a></p>
+        </footer>
+    </body>
+</html>

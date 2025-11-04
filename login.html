@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fox Findings - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+            <img src="pictures/fox_glasses.png" class="header-img left">
+            <div class="headertitle">
+                <h1>FOX FINDINGS</h1>
+                <h3>Das Natur-Beobachtungs-Portal</h3>
+            </div>
+            <img src="pictures/fox_notes.png" class="header-img right">
+    </header>
+   
+      <!--NAV TAB-->
+        <nav>
+            <div class="navigation-left">
+                <img src="pictures/fox_hello.png" class="nav-img">
+            </div>
+            <div class="navigation-center">
+                <a href="index.html">Startseite</a>
+                <a href="login.html">Login & Registrierung</a>
+                <a href="impressum.html">Impressum & Kontakt</a>
+            </div>
+        </nav>
+
+   <main>
+    <!--LOGIN-->
+    <h2>Login & Registrierung</h2>
+    <h4>Mach mit und teile deine Beobachtungen mit anderen!</h4>
+    <section class="login">
+    <form action="login.php" method="post">
+        <input type="email" placeholder="E-Mail Adresse" class="eingabefeld">
+        <input type="password" placeholder="Passwort" class="eingabefeld">
+        <input type="submit" value="Login" class="button2">
+    </form>
+    </section>
+
+    <!--REGISTER-->
+    <section class="register">
+    <div class="register_content">
+        <form action="login.php" method="post">
+            <h4 class="register_title">Noch nicht angemeldet? Registriere dich jetzt!</h4>
+            <p><input type="text" placeholder="Name" class="eingabefeld"></p>
+            <p><input type="email" placeholder="E-Mail Adresse" class="eingabefeld"></p>
+            <p><input type="email" placeholder="E-Mail Adresse bestätigen" class="eingabefeld"></p>
+            <p><input type="password" placeholder="Passwort" class="eingabefeld"></p>
+            <p><input type="password" placeholder="Passwort bestätigen" class="eingabefeld"></p>
+            <p><input type="submit" value="Registrieren" class="button2"></p>
+            <div class="checkbox">
+                <input type="checkbox" id="Datenschutz" class="eingabefeld">
+                <label for="Datenschutz" class="datenschutzhinweis">Ich stimme den Datenschutzrichtlinien zu</label>
+            </div>
+        </form>
+        <div class="fox_laptop">
+         <img src="pictures/fox_laptop.png">
+        </div>  
+    </div>   
+    </section>
+
+    
+    </main>
+    <footer>
+            <p>&copy; 2025 Valeria Muggironi</p>
+            <p>Quelle: <a href="https://www.inaturalist.org/observations?subview=map" target="_blank">inaturalist</a></p>
+    </footer>
+</body>
+</html>
