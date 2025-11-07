@@ -1,5 +1,6 @@
 //Variables
 const form = document.getElementById("reg-form");
+const submitButton = document.querySelector("button[type='submit']");
 
 const namefield = document.getElementById("reg-name");
 const namePattern = /^[a-zA-Z]+, [a-zA-Z]+/;
@@ -10,7 +11,7 @@ const mailPattern = /^[a-zA-Z0-9.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}$/;
 const mailError = document.getElementById("mail-error");
 
 const numberfield = document.getElementById("reg-number");
-const numberPattern = /^\+\d{1,3}\s\d{3,4}\s\d{4,8}/
+const numberPattern = /^(?:\+?\d{1,3}[\s-]?)?(?:\d{3,4}[\s-]?\d{5,8})$/
 const numberError = document.getElementById("number-error");
 
 const datefield = document.getElementById("reg-date");
@@ -27,7 +28,7 @@ function checkName(namefield, namePattern, nameError){
     if (namefield.value == ""){
       nameError.textContent = "Bitte gib deinen Namen ein" ; 
     }
-    if (!namePattern.test(namefield.value)){
+    else if (!namePattern.test(namefield.value)){
         nameError.textContent = "Bitte gib deinen Namen im Format 'Nachname, Vorname' ein";
     }
     else{
@@ -39,7 +40,7 @@ function checkMail(mailfield, mailPattern, mailError){
     if (mailfield.value == ""){
         mailError.textContent = "Bitte gib deine E-Mail ein";
     }
-    if (!mailPattern.test(mailfield.value)){
+    else if (!mailPattern.test(mailfield.value)){
         mailError.textContent = "Bitte gib eine gültige E-Mail ein";
     }
     else{
@@ -85,33 +86,95 @@ function checkPassword(passwordfield, passwordPattern, confPasswordfield, passwo
     }
 }
 
-
+//submit-button blocker
+function updateSubmitButton(){
+    if(
+       nameError.textContent !== "" ||
+       mailError.textContent !== "" ||
+       numberError.textContent !== "" ||
+       dateError.textContent !== "" ||
+       passwordError.textContent !== "" ||
+       confPasswordError.textContent !== ""||
+       namefield.value == "" ||
+       mailfield.value == "" ||
+       datefield.value == "" ||
+       passwordfield.value == "" ||
+       confPasswordfield.value == ""  
+    ){
+        submitButton.disabled = true;
+        console.log("Button disabled");
+    } 
+    else{
+        submitButton.disabled = false;
+        console.log("Button enabled"); 
+    }
+}
 
 //Live-Check
 namefield.addEventListener("input", function(){
     checkName(namefield, namePattern, nameError);
+    updateSubmitButton();
 });
 
 mailfield.addEventListener("input", function(){
     checkMail(mailfield, mailPattern, mailError);
+    updateSubmitButton();
 });
 
 numberfield.addEventListener("input", function(){
     checkNumber(numberfield, numberPattern, numberError);
+    updateSubmitButton();
 });
 
 datefield.addEventListener("input", function(){
     checkDate(datefield, dateError);
+    updateSubmitButton();
 });
 
 passwordfield.addEventListener("input", function(){
-    checkPassword(passwordfield, passwordPattern, passwordError);
+    checkPassword(passwordfield, passwordPattern, confPasswordfield, passwordError, confPasswordError);
+    updateSubmitButton();
 });
 
 confPasswordfield.addEventListener("input", function(){
-    checkPassword(confPasswordfield, passwordfield, passwordPattern, passwordError, confPasswordError);
+    checkPassword(passwordfield, passwordPattern, confPasswordfield, passwordError, confPasswordError);
+    updateSubmitButton();
 });
 
 
+//Submit when everything checked
+form.addEventListener("submit", function(e){
+    checkName(namefield, namePattern, nameError);
+    checkMail(mailfield, mailPattern, mailError);
+    checkNumber(numberfield, numberPattern, numberError);
+    checkDate(datefield, dateError);
+    checkPassword(passwordfield, passwordPattern, confPasswordfield, passwordError, confPasswordError);
+
+    if(
+        nameError.textContent !== "" ||
+        mailError.textContent !== "" ||
+        numberError.textContent !== "" ||
+        dateError.textContent !== "" ||
+        passwordError.textContent !== "" ||
+        confPasswordError.textContent !== "" 
+    ){
+        showPreview();
+        e.preventDefault();
+    }
+});
+
+updateSubmitButton();
+
+window.addEventListener("load", function(){
+    this.document.getElementById("reg-name").focus();
+});
 
 
+//preview
+function showPreview(){
+    const previewShow = document.createElement("span");
+    const parent = input.parentNode;
+    previewShow.textContent = namefield.value;
+    parent.insertBefore(previewShow, namefield);
+    namefield.style.display = "none";
+}
