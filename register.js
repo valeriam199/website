@@ -49,7 +49,7 @@ function checkMail(mailfield, mailPattern, mailError){
 }
 
 function checkNumber(numberfield, numberPattern, numberError){
-    if(!numberPattern.test(numberfield.value)){
+    if(numberfield.value == "" && !numberPattern.test(numberfield.value)){
         numberError.textContent = "Bitte gib eine gültige Telefonnummer ein";
     }
     else{
@@ -144,6 +144,8 @@ confPasswordfield.addEventListener("input", function(){
 
 //Submit when everything checked
 form.addEventListener("submit", function(e){
+    e.preventDefault(); 
+
     checkName(namefield, namePattern, nameError);
     checkMail(mailfield, mailPattern, mailError);
     checkNumber(numberfield, numberPattern, numberError);
@@ -151,15 +153,14 @@ form.addEventListener("submit", function(e){
     checkPassword(passwordfield, passwordPattern, confPasswordfield, passwordError, confPasswordError);
 
     if(
-        nameError.textContent !== "" ||
-        mailError.textContent !== "" ||
-        numberError.textContent !== "" ||
-        dateError.textContent !== "" ||
-        passwordError.textContent !== "" ||
-        confPasswordError.textContent !== "" 
+        nameError.textContent === "" &&
+        mailError.textContent === "" &&
+        numberError.textContent === "" &&
+        dateError.textContent === "" &&
+        passwordError.textContent === "" &&
+        confPasswordError.textContent === ""
     ){
         showPreview();
-        e.preventDefault();
     }
 });
 
@@ -172,9 +173,43 @@ window.addEventListener("load", function(){
 
 //preview
 function showPreview(){
-    const previewShow = document.createElement("span");
-    const parent = input.parentNode;
-    previewShow.textContent = namefield.value;
-    parent.insertBefore(previewShow, namefield);
-    namefield.style.display = "none";
+    // Name
+      if(!document.getElementById("name-preview")) {
+        let namePreview = document.createElement("span");
+        namePreview.id = "name-preview";
+        namePreview.textContent = namefield.value;
+        namefield.parentNode.insertBefore(namePreview, namefield);
+        namefield.style.display = "none";
+    }
+
+    // E-Mail
+    if(!document.getElementById("mail-preview")) {
+        let mailPreview = document.createElement("span");
+        mailPreview.id = "mail-preview";
+        mailPreview.textContent = mailfield.value;
+        mailfield.parentNode.insertBefore(mailPreview, mailfield);
+        mailfield.style.display = "none";
+    }
+
+    // Telefonnummer (optional)
+    if(numberfield.value !== "" && !document.getElementById("number-preview")) {
+        let numberPreview = document.createElement("span");
+        numberPreview.id = "number-preview";
+        numberPreview.textContent = numberfield.value;
+        numberfield.parentNode.insertBefore(numberPreview, numberfield);
+        numberfield.style.display = "none";
+    }
+
+    // Geburtsdatum
+    if(!document.getElementById("date-preview")) {
+        let datePreview = document.createElement("span");
+        datePreview.id = "date-preview";
+        datePreview.textContent = datefield.value;
+        datefield.parentNode.insertBefore(datePreview, datefield);
+        datefield.style.display = "none";
+    }
+
+    //Block password
+    passwordfield.style.display = "none";
+    confPasswordfield.style.display = "none";
 }
