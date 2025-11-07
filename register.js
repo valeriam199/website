@@ -49,7 +49,7 @@ function checkMail(mailfield, mailPattern, mailError){
 }
 
 function checkNumber(numberfield, numberPattern, numberError){
-    if(numberfield.value == "" && !numberPattern.test(numberfield.value)){
+    if(numberfield.value == "" &&!numberPattern.test(numberfield.value)){
         numberError.textContent = "Bitte gib eine gültige Telefonnummer ein";
     }
     else{
