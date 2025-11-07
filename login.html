@@ -44,17 +44,36 @@
     <!--REGISTER-->
     <section class="register">
     <div class="register_content">
-        <form action="login.php" method="post">
+        <form action="login.php" method="post" id="reg-form">
             <h4 class="register_title">Noch nicht angemeldet? Registriere dich jetzt!</h4>
-            <p><input type="text" placeholder="Name" class="eingabefeld"></p>
-            <p><input type="email" placeholder="E-Mail Adresse" class="eingabefeld"></p>
-            <p><input type="email" placeholder="E-Mail Adresse bestätigen" class="eingabefeld"></p>
-            <p><input type="password" placeholder="Passwort" class="eingabefeld"></p>
-            <p><input type="password" placeholder="Passwort bestätigen" class="eingabefeld"></p>
-            <p><input type="submit" value="Registrieren" class="button2"></p>
+            <p>
+                <input type="text" placeholder="*Name, Vorname" class="eingabefeld" id="reg-name">
+                <span class="error-message" id="name-error"></span>
+            </p>
+            <p>
+                <input type="email" placeholder="*E-Mail Adresse" class="eingabefeld" id="reg-mail">
+                <span class="error-message" id="mail-error"></span>
+            </p>
+            <p>
+                <input type="number" placeholder="Telefonnummer" class="eingabefeld" id="reg-number">
+                <span class="error-message" id="number-error"></span>
+            </p>
+            <p>
+                <input type="date" placeholder="Geburtsdatum" class="eingabefeld" id="reg-date">
+                <span class="error-message" id="date-error"></span>
+            </p>
+            <p>
+                <input type="password" placeholder="*Passwort (mind. 8 Zeichen)" class="eingabefeld" id="reg-password">
+                <span class="error-message" id="password-error"></span>
+            </p>
+            <p>
+                <input type="password" placeholder="*Passwort bestätigen" class="eingabefeld" id="conf-password">
+                <span class="error-message" id="confpassword-error"></span>
+            </p>
+            <p><button type="submit" class="button2" id="submit">Registrieren</button></p>
             <div class="checkbox">
                 <input type="checkbox" id="Datenschutz" class="eingabefeld">
-                <label for="Datenschutz" class="datenschutzhinweis">Ich stimme den Datenschutzrichtlinien zu</label>
+                <label for="Datenschutz" class="datenschutzhinweis">Ich stimme den <a href src="impressum.html">Datenschutzrichtlinien</a> zu</label>
             </div>
         </form>
         <div class="fox_laptop">
@@ -69,5 +88,6 @@
             <p>&copy; 2025 Valeria Muggironi</p>
             <p>Quelle: <a href="https://www.inaturalist.org/observations?subview=map" target="_blank">inaturalist</a></p>
     </footer>
+    <script src="register.js"></script>
 </body>
 </html>

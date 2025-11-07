@@ -48,6 +48,7 @@ nav{
     gap: 20px;
     padding: 0 20px;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     position: sticky;
@@ -176,6 +177,9 @@ nav{
     margin-top: 10px;
     font-size: 0.9rem;
 }
+#loading-button{
+    z-index: 1;
+}
 
 /*Filtertabelle*/
 .table1 {
@@ -247,16 +251,53 @@ footer a{
     min-width: 250px;
 }
 
+.register_content form p{
+    position: relative;
+    margin-bottom: 25px;
+    width: 200px;
+}
+
 .register_content input {
     display: block;
     margin: 0;
 }
 
-.eingabefeld {
+.error-message{
+    position: absolute;
+    left: 0;
+    display: block;
+    height: 20px;
+    color:darkred;
+    font-size: x-small;
+    margin-top: 2px;
+    overflow: visible;
+    white-space: nowrap;
+    line-height: 1.2rem;
+    min-width: 250px;
+    text-align: left;
+}
+
+button[type="submit"]:disabled{
+    background-color: darkgrey !important;
+    cursor: not-allowed !important;
+    opacity: 0.6;
+}
+
+.login .eingabefeld{
+    background-color: blanchedalmond;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-color: rgba(123, 81, 20, 0.597);
+    box-sizing: border-box;
+}
+
+.register_content .eingabefeld {
     background-color: blanchedalmond;
     padding: 5px 10px;
     border-radius: 5px;
     border-color:  rgba(123, 81, 20, 0.597);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .datenschutzhinweis {
@@ -322,11 +363,12 @@ footer a{
 /*Smartphones*/
 @media screen and (max-width:768px) {
     .navigation-center{
-        flex-direction: column;
         align-items: center;
         gap: 10px;
     }
     .navigation-center a{
+        font-size: 70%;
+        font-weight: bold;
         width: 80%;
         text-align: center;
     }
