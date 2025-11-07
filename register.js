@@ -26,7 +26,7 @@ const confPasswordError = document.getElementById("confpassword-error");
 //Controll-function
 function checkName(namefield, namePattern, nameError){
     if (namefield.value == ""){
-      nameError.textContent = "Bitte gib deinen Namen ein" ; 
+        nameError.textContent = "Bitte gib deinen Namen ein" ; 
     }
     else if (!namePattern.test(namefield.value)){
         nameError.textContent = "Bitte gib deinen Namen im Format 'Nachname, Vorname' ein";

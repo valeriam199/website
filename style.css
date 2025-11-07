@@ -177,6 +177,9 @@ nav{
     margin-top: 10px;
     font-size: 0.9rem;
 }
+#loading-button{
+    z-index: 1;
+}
 
 /*Filtertabelle*/
 .table1 {

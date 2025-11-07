@@ -3,6 +3,7 @@ const loadingButton = document.getElementById("loading-button");
 
 let currentPage = 1;
 const perPage = 100;
+let count = 0;
 
 console.log("JS geladen");
 function getData(){
@@ -11,7 +12,6 @@ function getData(){
           + "&page=" + currentPage
           + "&per_page=" + perPage
           + "&order=desc&order_by=created_at";
-    let count = 0;
 
     fetch(url)
         .then(response => response.json())
@@ -26,51 +26,58 @@ function getData(){
                 //const lat = observation.geojson.coordinates[1];
 
                 //create Observations
-                //if (lon >= 10.5 && lon <= 11.5 && lat >= 51.5 && lat <= 51.95) {
-                    const card = document.createElement("div");
-                    card.classList.add("observation-card");
-                    card.dataset.category = observation.taxon.iconic_taxon_name.toLowerCase();
-                    card.id = "obs" + observation.id;
+                
+                const card = document.createElement("div");
+                card.classList.add("observation-card");
+                card.dataset.category = observation.taxon.iconic_taxon_name.toLowerCase();
+                card.id = "obs" + observation.id;
 
-                    //image
-                    const img = document.createElement("img");
-                    img.src = observation.photos[0].url.replace("square", "large");
-                    card.appendChild(img);
+                //image
+                const img = document.createElement("img");
+                img.src = observation.photos[0].url.replace("square", "large");
+                card.appendChild(img);
 
-                    //name
-                    const titleName = document.createElement("h4");
-                    titleName.textContent = observation.species_guess;
-                    card.appendChild(titleName);
+                //name
+                const titleName = document.createElement("h4");
+                titleName.textContent = observation.species_guess;
+                card.appendChild(titleName);
 
-                    //detail div
-                    const details = document.createElement("div")
-                    details.classList.add("details");
-                    card.appendChild(details);
+                //detail div
+                const details = document.createElement("div")
+                details.classList.add("details");
+                card.appendChild(details);
 
-                    //latin name
-                    const latinName = document.createElement("p");
-                    latinName.textContent = "Lateinischer Name: " + observation.taxon.name;
-                    details.appendChild(latinName);
+                //latin name
+                const latinName = document.createElement("p");
+                latinName.textContent = "Lateinischer Name: " + observation.taxon.name;
+                details.appendChild(latinName);
 
-                    //date
-                    const sawDate = document.createElement("p");
-                    sawDate.textContent = "Gesichtet am: " + observation.observed_on;
-                    details.appendChild(sawDate);
+                //date
+                const sawDate = document.createElement("p");
+                sawDate.textContent = "Gesichtet am: " + observation.observed_on;
+                details.appendChild(sawDate);
 
-                    //category
-                    const category = document.createElement("p");
-                    category.textContent = "Art: " + observation.taxon.iconic_taxon_name;
-                    details.appendChild(category);
+                //category
+                const category = document.createElement("p");
+                category.textContent = "Art: " + observation.taxon.iconic_taxon_name;
+                details.appendChild(category);
 
-                    observationContainer.appendChild(card);
-
-                    console.log("Lade Seite:", currentPage);
-                    console.log("Beobachtungen erhalten:", data.results.length);
-                //}
+                observationContainer.appendChild(card);
 
                 count++;
+
+                if (count < 6) {
+                    currentPage++;
+                    getData();
+                }
             });
         });
     }
 
 getData();
+
+//more observation cards
+loadingButton.addEventListener("click", ()=>{
+    count = 0;
+    getData();
+});
