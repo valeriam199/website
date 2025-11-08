@@ -303,11 +303,20 @@ button[type="submit"]:disabled{
 .datenschutzhinweis {
     padding: 5px 10px;
     font-size: small;
+    display: flex;
+}
+#checkbox-error{
+    pointer-events: none;
+    position: static;
+    margin-top: 2px;
 }
 
 .checkbox{
     display: flex;
+    flex-direction: column;
     align-items: center;
+    z-index: 100;
+    pointer-events: auto;
 }
 
 .fox_laptop img {
@@ -374,6 +383,12 @@ button[type="submit"]:disabled{
     }
     .observations .observation-card{
         width: 90%;
+        size: 90%;
+        margin: 25px;
+    }
+    .observation-card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px;
     }
     .map{
         width: 100%;
@@ -388,6 +403,22 @@ button[type="submit"]:disabled{
         width: 80px;
         height: auto;
         margin: 10px auto;
+    }
+    .table1 {
+        background-color: rgba(123, 81, 20, 0.597);
+        color:blanchedalmond;
+        margin: 0 auto 30px auto;
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+    .tabletitle{
+        font-weight: bold;
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+    .inhalt{
+        padding: 10px;
+        font-size: 0.8rem;
     }
     .login{
         flex-direction: column;

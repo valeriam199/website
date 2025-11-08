@@ -23,6 +23,13 @@ const passwordError = document.getElementById("password-error");
 const confPasswordfield = document.getElementById("conf-password");
 const confPasswordError = document.getElementById("confpassword-error");
 
+const urlfield = document.getElementById("reg-url");
+const urlPattern = /^www\.[a-zA-Z\-]+\.[a-zA-Z]+[a-zA-Z\-\\/]/;
+const urlError = document.getElementById("url-error");
+
+const checkbox = document.getElementById("Datenschutz");
+const checkboxError = document.getElementById("checkbox-error");
+
 //Controll-function
 function checkName(namefield, namePattern, nameError){
     if (namefield.value == ""){
@@ -49,7 +56,7 @@ function checkMail(mailfield, mailPattern, mailError){
 }
 
 function checkNumber(numberfield, numberPattern, numberError){
-    if(numberfield.value == "" &&!numberPattern.test(numberfield.value)){
+    if(!numberPattern.test(numberfield.value)){
         numberError.textContent = "Bitte gib eine gültige Telefonnummer ein";
     }
     else{
@@ -86,6 +93,24 @@ function checkPassword(passwordfield, passwordPattern, confPasswordfield, passwo
     }
 }
 
+function checkUrl(urlfield, urlPattern, urlError){
+    if (!urlPattern.test(urlfield.value)){
+        urlError.textContent = "Bitte gib eine gültige URL ein";
+    }
+    else{
+        urlError.textContent = "";
+    }
+}
+
+function checkCheckbox(checkbox){
+    if (!checkbox.checked){
+        checkboxError.textContent = "Bitte stimme den Datenschutzrichtlinien zu";
+    }
+    else{
+        checkboxError.textContent = "";
+    }
+}
+
 //submit-button blocker
 function updateSubmitButton(){
     if(
@@ -95,6 +120,8 @@ function updateSubmitButton(){
        dateError.textContent !== "" ||
        passwordError.textContent !== "" ||
        confPasswordError.textContent !== ""||
+       urlError.textContent !== "" ||
+       checkboxError.textContent !== "" ||
        namefield.value == "" ||
        mailfield.value == "" ||
        datefield.value == "" ||
@@ -141,6 +168,16 @@ confPasswordfield.addEventListener("input", function(){
     updateSubmitButton();
 });
 
+urlfield.addEventListener("inout", function(){
+    checkUrl(urlfield, urlPattern, urlError);
+    updateSubmitButton();
+});
+
+checkbox.addEventListener("change", function(){
+    checkCheckbox(checkbox, checkboxError);
+    updateSubmitButton();
+});
+
 
 //Submit when everything checked
 form.addEventListener("submit", function(e){
@@ -148,9 +185,10 @@ form.addEventListener("submit", function(e){
 
     checkName(namefield, namePattern, nameError);
     checkMail(mailfield, mailPattern, mailError);
-    checkNumber(numberfield, numberPattern, numberError);
+    //checkNumber(numberfield, numberPattern, numberError);
     checkDate(datefield, dateError);
     checkPassword(passwordfield, passwordPattern, confPasswordfield, passwordError, confPasswordError);
+    checkCheckbox(checkbox, checkboxError);
 
     if(
         nameError.textContent === "" &&
@@ -158,7 +196,9 @@ form.addEventListener("submit", function(e){
         numberError.textContent === "" &&
         dateError.textContent === "" &&
         passwordError.textContent === "" &&
-        confPasswordError.textContent === ""
+        confPasswordError.textContent === "" &&
+        urlError.textContent == "" &&
+        checkbox.checked
     ){
         showPreview();
     }
@@ -197,8 +237,8 @@ function showPreview(){
         numberPreview.id = "number-preview";
         numberPreview.textContent = numberfield.value;
         numberfield.parentNode.insertBefore(numberPreview, numberfield);
-        numberfield.style.display = "none";
     }
+    numberfield.style.display = "none";
 
     // Geburtsdatum
     if(!document.getElementById("date-preview")) {
@@ -212,4 +252,13 @@ function showPreview(){
     //Block password
     passwordfield.style.display = "none";
     confPasswordfield.style.display = "none";
+
+    //url
+    if(!document.getElementById("url-preview")){
+        let urlPreview = document.createElement("span");
+        urlPreview.id = "url-preview";
+        urlPreview.textContent = urlfield.value;
+        urlfield.parentNode.insertBefore(urlPreview, urlfield);
+        urlfield.style.display = "none";
+    }
 }

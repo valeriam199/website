@@ -22,11 +22,15 @@ function getData(){
                 if (!observation.geojson) return;
                 if (!observation.species_guess) return;
                 if (!observation.photos || observation.photos.length === 0) return;
-                //const lon = observation.geojson.coordinates[0];
-                //const lat = observation.geojson.coordinates[1];
+                if (observation.species_guess.toLowerCase() == observation.taxon.name.toLowerCase()) return;
+                const lon = observation.geojson.coordinates[0];
+                const lat = observation.geojson.coordinates[1];
+
+                if (lon < 13.42 || lon > 13.44 || lat < 52.52 || lat > 52.54) return;
+                console.log("Art:", observation.species_guess, "Lon:", lon, "Lat:", lat);
+
 
                 //create Observations
-                
                 const card = document.createElement("div");
                 card.classList.add("observation-card");
                 card.dataset.category = observation.taxon.iconic_taxon_name.toLowerCase();
