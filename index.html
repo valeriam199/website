@@ -3,149 +3,138 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="pictures/fox_hello.png">
         <title>Fox Findings</title>
 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="style.css" /> 
     </head>
 
     <body>
         <header>
-            <img src="pictures/fox_glasses.png" class="header-img left">
-            <div class="headertitle">
-                <h1>FOX FINDINGS</h1>
-                <h3>Das Natur-Beobachtungs-Portal</h3>
+            <div class="container-fluid px-0">
+                <div class="row g-0 align-items-center">
+                    <div class="col-4 col-md-2 ps-2">
+                        <img src="pictures/fox_glasses.png" class="img-fluid">
+                    </div>
+                    <div class="col-4 col-md-8 p-2">
+                        <div class="headertitle">
+                            <h1>FOX FINDINGS</h1>
+                            <h3>Das Natur-Beobachtungs-Portal</h3>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2 pe-2">
+                        <img src="pictures/fox_notes.png" class="img-fluid">
+                    </div>  
+                </div>
             </div>
-            <img src="pictures/fox_notes.png" class="header-img right">
         </header>
 
         <!--NAV TAB-->
-        <nav>
-            <div class="navigation-left">
-                <img src="pictures/fox_hello.png" class="nav-img">
-            </div>
-            <div class="navigation-center">
-                <a href="index.html">Startseite</a>
-                <a href="login.html">Login & Registrierung</a>
-                <a href="impressum.html">Impressum & Kontakt</a>
+        <nav class="navbar navbar-expand-md py-2 mt-2">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="pictures/fox_hello.png" class="img-fluid rounded" style="max-height: 50px;">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-links" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="nav-links">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Startseite</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login & Registrierung</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="impressum.html">Impressum & Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
 
         <main>
             <!--MAP SECTION-->
-            <h2>Beobachtungen im Volkspark Friedrichshain</h2>
             <section class="map">
-                <a href="#obs1" class="marker" style="top:39%; left:53%;" data-observation="obs1"></a>
-                <a href="#obs2" class="marker" style="top:53%; left:43%;" data-observation="obs2"></a>
-                <a href="#obs3" class="marker" style="top:25%; left:80%;" data-observation="obs3"></a>
-                <a href="#obs4" class="marker" style="top:33%; left:35%;" data-observation="obs4"></a>
-                <a href="#obs5" class="marker" style="top:77%; left:63%" data-observation="obs5"></a>
-                <a href="#obs6" class="marker" style="top:15%; left:47%" data-observation="obs6"></a>
-            </section>
-
-            <!--KATEGORIEN UND SUCHE-->    
-            <section class="search-add">
-                <section class="add-observation">
-                    <button class="button2">Beobachtung hinzufügen</button>
-                </section>
-                <div class="search">
-                    <form action="#" method="get">
-                        <input type="text" placeholder="Suchbegriff eingeben" class="eingabefeld">
-                        <input type="submit" value="Suchen" class="button2">   
-                    </form>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 mt-5 mb-2">
+                            <h2 class="text-center">Beobachtungen im Volkspark Friedrichshain</h2>
+                        </div>
+                        <div class="col-12 col-md-10 mb-3 mb-md-5">
+                            <img src="pictures/Karte_Volkspark.png" class="img-fluid d-block mx-auto rounded">
+                        </div>
+                    </div>
                 </div>
             </section>
-
-            <div class="categories">
-                <table class="table1">
-                    <tr>
-                        <td class="tabletitle">Kategorien </td>
-                        <td class="inhalt"><label data-category="all">Alle</label></td>
-
-                        <td class="inhalt"><label data-category="insekten">Insekten</label></td>
-                        <td class="inhalt"><label data-category="pflanzen">Pflanzen</label></td>
-                        <td class="inhalt"><label data-category="pilze">Pilze</label></td>
-                        <td class="inhalt"><label data-category="saeugetiere">Säugetiere</label></td>
-                        <td class="inhalt"><label data-category="spinnentiere">Spinnentiere</label></td>
-                        <td class="inhalt"><label data-category="voegel">Vögel</label></td>
-                    </tr>
-                </table>
-            </div>
-
-
-            <section class="observations" id="load-observation"> 
-                <!--Kachel Erstekllung über js-->
-            </section>
-            <p><button class="button2" id="loading-button">mehr laden</button></p>
-
             
-            <!--OBSERVATION SECTION-->
-            <!--<section class="observations">
-                <div class="observation-card" data-category="voegel" id="obs1">
-                    <img src="pictures/Mandarinente.jpg" alt="Mandarinente">
-                    <h4>Mandarinente</h4>
-                    <div class="details">
-                        <p>Lateinischer Name: Aix galericulata</p>
-                        <p>Gesichtet am 10. April 2020</p>
-                        <p>Art: Vogel</p>
-                    </div>
-                </div>
+            
 
-                <div class="observation-card" data-category="insekten" id="obs2">
-                    <img src="pictures/Admiral.jpg" alt="Admiral">
-                    <h4>Admiral</h4>
-                    <div class="details">
-                        <p>Lateinischer Name: Pyrameis atalanta</p>
-                        <p>Gesichtet am 23. August 2020 </p>
-                        <p>Art: Insekt</p>
+            <!--KATEGORIEN UND SUCHE--> 
+            <section class="filter-search mt-5">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-6 text-end mb-2 mb-md-4">
+                            <button class="button2">Beobachtung hinzufügen</button>
+                        </div>
+                            
+                        <div class="col-6 text-start mb-2 mb-md-4">
+                            <form action="#" method="get">
+                                <input type="text" placeholder="Suchbegriff eingeben" class="eingabefeld">
+                                <input type="submit" value="Suchen" class="button2">   
+                            </form>
+                        </div>
                     </div>
-                </div>
 
-                <div class="observation-card" data-category="pflanzen" id="obs3">
-                    <img src="pictures/Eibe.jpg" alt="Eibe">
-                    <h4>Eibe</h4>
-                    <div class="details">
-                        <p>Lateinischer Name: Taxus baccata</p>
-                        <p>Gesichtet am 28. April 2025 </p>
-                        <p>Art: Pflanze</p>
-                    </div>
-                </div>
+                    <div class="row align-items-center">
+                        <div class="col-auto mx-auto">
+                            <div class="d-flex flex-wrap gap-2 justify-content-center border border-success rounded p-2">
+                                <button class="btn btn-outline-success" data-category="all">Alle</button>
+                                <button class="btn btn-outline-success" data-category="insecta">Insekten</button>
+                                <button class="btn btn-outline-success" data-category="plantae">Pflanzen</button>
+                                <button class="btn btn-outline-success" data-category="fungi">Pilze</button>
+                                <button class="btn btn-outline-success" data-category="mammalia">Säugetiere</button>
+                                <button class="btn btn-outline-success" data-category="arachnida">Spinnentiere</button>
+                                <button class="btn btn-outline-success" data-category="aves">Vögel</button>
+                            </div>
+                        </div>
+                    </div>  
+                </div> 
+            </section>
+             
+            <section class="py-4">
+                <div class="container">
+                    <div class="row g-4" id="load-observation">
 
-                <div class="observation-card" data-category="saeugetiere" id="obs4">
-                    <img src="pictures/Eurasisches_Eichhoernchen.jpg" alt="eichhoernchen">
-                    <h4>Eurasisches Eichhörnchen</h4>
-                    <div class="details">
-                        <p>Lateinischer Name: </p>
-                        <p>Gesichtet am 22. Oktober 2023 </p>
-                        <p>Art: Säugetier</p>
                     </div>
                 </div>
+            </section>
 
-                <div class="observation-card" data-category="insekten" id="obs5">
-                    <img src="pictures/kleiner_frostspanner.jpeg" alt="frostspanner">
-                    <h4>Kleiner Frostspanner</h4>
-                    <div class="details">
-                        <p>Lateinischer Name: Operophtera brumata</p>
-                        <p>Gesichtet am 15. November 2023 </p>
-                        <p>Art: Insekt</p>
-                    </div>
-                </div>
-
-                <div class="observation-card" data-category="pilze" id="obs6">
-                    <img src="pictures/Großer_Holztintling.jpeg" alt="Tingling">
-                    <h4>Tingling</h4>
-                    <div class="details">
-                        <p>Lateinischer Name: Coprinus sensu lato</p>
-                        <p>Gesichtet am 06. August 2023 </p>
-                        <p>Art: Pilz</p>
-                    </div>
-                </div>
-            </section> -->
+            <!--<section class="observations" id="load-observation"> 
+                Kachel Erstekllung über js
+            </section>-->
+            <p><button class="button2" id="loading-button">mehr laden</button></p>
+        
         
         </main>
         <footer>
-            <p>&copy; 2025 Valeria Muggironi</p>
-            <p>Quelle: <a href="https://www.inaturalist.org/observations?subview=map" target="_blank">inaturalist</a></p>
+            <div class="container-fluid px-0">
+                <div class="row g-0">
+                    <div class="col-12 ms-2 mt-2">
+                      &copy; 2025 Valeria Muggironi  
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 ms-2 mb-2">
+                        Quelle: <a href="https://www.inaturalist.org/observations?subview=map" target="_blank">inaturalist</a>
+                    </div>
+                </div>
+            </div>
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="observation.js"></script>
     </body>
 </html>

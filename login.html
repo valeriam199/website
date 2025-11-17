@@ -1,89 +1,137 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fox Findings - Login</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="pictures/fox_hello.png">
+        <title>Fox Findings</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css" /> 
 </head>
 
 <body>
-    <header>
-            <img src="pictures/fox_glasses.png" class="header-img left">
-            <div class="headertitle">
-                <h1>FOX FINDINGS</h1>
-                <h3>Das Natur-Beobachtungs-Portal</h3>
+   <header>
+        <div class="container-fluid px-0">
+            <div class="row g-0 align-items-center">
+                <div class="col-4 col-md-2 ps-2">
+                    <img src="pictures/fox_glasses.png" class="img-fluid">
+                </div>
+                <div class="col-4 col-md-8 p-2">
+                    <div class="headertitle">
+                        <h1>FOX FINDINGS</h1>
+                        <h3>Das Natur-Beobachtungs-Portal</h3>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2 pe-2">
+                    <img src="pictures/fox_notes.png" class="img-fluid">
+                </div>  
             </div>
-            <img src="pictures/fox_notes.png" class="header-img right">
-    </header>
+        </div>
+     </header>
    
-      <!--NAV TAB-->
-        <nav>
-            <div class="navigation-left">
-                <img src="pictures/fox_hello.png" class="nav-img">
+     
+    <!--NAV TAB-->
+    <nav class="navbar navbar-expand-md py-2 mt-2">
+        <div class="container-fluid">
+             <a class="navbar-brand" href="#">
+                <img src="pictures/fox_hello.png" class="img-fluid rounded" style="max-height: 50px;">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-links" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="nav-links">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Startseite</a>
+                    </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="login.html">Login & Registrierung</a>
+                    </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="impressum.html">Impressum & Kontakt</a>
+                    </li>
+                </ul>
             </div>
-            <div class="navigation-center">
-                <a href="index.html">Startseite</a>
-                <a href="login.html">Login & Registrierung</a>
-                <a href="impressum.html">Impressum & Kontakt</a>
-            </div>
-        </nav>
+        </div>
+     </nav>
 
    <main>
     <!--LOGIN-->
-    <h2>Login & Registrierung</h2>
-    <h4>Mach mit und teile deine Beobachtungen mit anderen!</h4>
-    <section class="login">
-    <form action="login.php" method="post">
-        <input type="email" placeholder="E-Mail Adresse" class="eingabefeld">
-        <input type="password" placeholder="Passwort" class="eingabefeld">
-        <input type="submit" value="Login" class="button2">
-    </form>
-    </section>
+    <div class=" container" id="login">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2>Login & Registrierung</h2>
+                <h4>Mach mit und teile deine Beobachtungen mit anderen!</h4>
+                <section class="login">
+                    <form action="login.php" method="post">
+                        <input type="email" placeholder="E-Mail Adresse" class="eingabefeld">
+                        <input type="password" placeholder="Passwort" class="eingabefeld">
+                        <input type="submit" value="Login" class="button2">
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+    
 
     <!--REGISTER-->
+    <div class="container col-md-8" id="register">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h4 id="register_title">Noch nicht angemeldet? Registriere dich jetzt!</h4>
+            </div>
+        </div>
+        <div class="row justify-content-center" id="register_content">
+            <div class="col-12 col-md-8">
+                <form action="login.php" method="post" id="reg-form">
+                    <p>
+                        <input type="text" placeholder="*Name, Vorname" class="eingabefeld" id="reg-name">
+                        <span class="error-message" id="name-error"></span>
+                    </p>
+                    <p>
+                        <input type="email" placeholder="*E-Mail Adresse" class="eingabefeld" id="reg-mail">
+                        <span class="error-message" id="mail-error"></span>
+                    </p>
+                    <p>
+                        <input type="number" placeholder="Telefonnummer" class="eingabefeld" id="reg-number">
+                        <span class="error-message" id="number-error"></span>
+                    </p>
+                    <p>
+                        <input type="date" placeholder="Geburtsdatum" class="eingabefeld" id="reg-date">
+                        <span class="error-message" id="date-error"></span>
+                    </p>
+                    <p>
+                        <input type="password" placeholder="*Passwort (mind. 8 Zeichen)" class="eingabefeld" id="reg-password">
+                        <span class="error-message" id="password-error"></span>
+                    </p>
+                    <p>
+                        <input type="password" placeholder="*Passwort bestätigen" class="eingabefeld" id="conf-password">
+                        <span class="error-message" id="confpassword-error"></span>
+                    </p>
+                    <p>
+                        <input type="url" placeholder="url der Webseite" class="eingabefeld" id="reg-url">
+                        <span class="error-message" id="url-error"></span>
+                    </p>
+                    <p><button type="submit" class="button2" id="submit">Registrieren</button></p>
+                    <div class="checkbox">
+                        <input type="checkbox" id="Datenschutz" class="eingabefeld">
+                        <label for="Datenschutz" class="datenschutzhinweis">Ich stimme den <a href="impressum.html">Datenschutzrichtlinien</a> zu</label>
+                        <span class="error-message" id="checkbox-error"></span>
+                    </div>
+                 </form>
+            </div>
+            <div class="col-12" id="fox_laptop">
+                <img src="pictures/fox_laptop.png" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
     <section class="register">
     <div class="register_content">
-        <form action="login.php" method="post" id="reg-form">
-            <h4 class="register_title">Noch nicht angemeldet? Registriere dich jetzt!</h4>
-            <p>
-                <input type="text" placeholder="*Name, Vorname" class="eingabefeld" id="reg-name">
-                <span class="error-message" id="name-error"></span>
-            </p>
-            <p>
-                <input type="email" placeholder="*E-Mail Adresse" class="eingabefeld" id="reg-mail">
-                <span class="error-message" id="mail-error"></span>
-            </p>
-            <p>
-                <input type="number" placeholder="Telefonnummer" class="eingabefeld" id="reg-number">
-                <span class="error-message" id="number-error"></span>
-            </p>
-            <p>
-                <input type="date" placeholder="Geburtsdatum" class="eingabefeld" id="reg-date">
-                <span class="error-message" id="date-error"></span>
-            </p>
-            <p>
-                <input type="password" placeholder="*Passwort (mind. 8 Zeichen)" class="eingabefeld" id="reg-password">
-                <span class="error-message" id="password-error"></span>
-            </p>
-            <p>
-                <input type="password" placeholder="*Passwort bestätigen" class="eingabefeld" id="conf-password">
-                <span class="error-message" id="confpassword-error"></span>
-            </p>
-            <p>
-                <input type="url" placeholder="url der Webseite" class="eingabefeld" id="reg-url">
-                <span class="error-message" id="url-error"></span>
-            </p>
-            <p><button type="submit" class="button2" id="submit">Registrieren</button></p>
-            <div class="checkbox">
-                <input type="checkbox" id="Datenschutz" class="eingabefeld">
-                <label for="Datenschutz" class="datenschutzhinweis">Ich stimme den <a href="impressum.html">Datenschutzrichtlinien</a> zu</label>
-                <span class="error-message" id="checkbox-error"></span>
-                
-            </div>
-        </form>
+        
         <div class="fox_laptop">
-         <img src="pictures/fox_laptop.png">
+         
         </div>  
     </div>   
     </section>
@@ -91,9 +139,21 @@
     
     </main>
     <footer>
-            <p>&copy; 2025 Valeria Muggironi</p>
-            <p>Quelle: <a href="https://www.inaturalist.org/observations?subview=map" target="_blank">inaturalist</a></p>
+        <div class="container-fluid px-0">
+            <div class="row g-0">
+                <div class="col-12 ms-2 mt-2">
+                    &copy; 2025 Valeria Muggironi  
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 ms-2 mb-2">
+                    Quelle: <a href="https://www.inaturalist.org/observations?subview=map" target="_blank">inaturalist</a>
+                 </div>
+             </div>
+         </div>
     </footer>
-    <script src="register.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="observation.js"></script>
+
 </body>
 </html>
