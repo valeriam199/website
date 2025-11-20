@@ -4,7 +4,7 @@ html{
 }
 
 :root{
-    --green: rgb(25, 135, 84);
+    --green: rgba(72, 136, 41, 0.763);
     --beige: blanchedalmond;
     --braun: #9c7648;
 }
@@ -27,7 +27,7 @@ main{
 header{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background-color: var(--braun);
-    color: blanchedalmond;
+    color: var(--beige);
 }
 
 
@@ -39,12 +39,12 @@ nav.navbar{
     z-index: 1000;
 }
 .navbar .nav-link{
-    color: blanchedalmond;
+    color: var(--beige);
     font-weight: 600;
 }
 
 .navbar .nav-link:hover{
-    background-color: rgba(123, 81, 20, 0.597);
+    background-color: var(--braun);
     border-radius: 4px;
 }
 
@@ -54,14 +54,33 @@ nav.navbar{
 }
 
 /*Buttons*/
-.button2{
-   display: inline-block;
-    padding: 5px 10px;
-    background-color: rgba(72, 136, 41, 0.763);
-    color: blanchedalmond;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 5px; 
+
+.brdoutline2{
+    border-color: var(--green) !important;
+    color: var(--green);
+}
+
+.brdoutline{
+    border-color: rgba(72, 136, 41, 0.763) !important;
+    color: var(--green);
+}
+
+.brdoutline3{
+    border-color: var(--beige) !important;
+    background-color: var(--green);
+    color: var(--beige);
+
+}
+
+.brdoutline3:hover{
+    border-color: var(--green);
+    color: var(--green);
+    box-shadow: 0 2px 4px;
+}
+
+.brdoutline:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px;
 }
 
 
