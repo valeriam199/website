@@ -83,42 +83,62 @@
                 <h4 id="register_title">Noch nicht angemeldet? Registriere dich jetzt!</h4>
             </div>
         </div>
-        <div class="row justify-content-center" id="register_content">
+        <form class="row g-3 needs-validation" novalidate id="register_content">
             <div class="col-12 col-md-8">
                 <form action="login.php" method="post" id="reg-form">
-                    <p>
-                        <input type="text" placeholder="*Name, Vorname" class="eingabefeld" id="reg-name">
-                        <span class="error-message" id="name-error"></span>
-                    </p>
-                    <p>
-                        <input type="email" placeholder="*E-Mail Adresse" class="eingabefeld" id="reg-mail">
-                        <span class="error-message" id="mail-error"></span>
-                    </p>
-                    <p>
-                        <input type="number" placeholder="Telefonnummer" class="eingabefeld" id="reg-number">
-                        <span class="error-message" id="number-error"></span>
-                    </p>
-                    <p>
-                        <input type="date" placeholder="Geburtsdatum" class="eingabefeld" id="reg-date">
-                        <span class="error-message" id="date-error"></span>
-                    </p>
-                    <p>
-                        <input type="password" placeholder="*Passwort (mind. 8 Zeichen)" class="eingabefeld" id="reg-password">
-                        <span class="error-message" id="password-error"></span>
-                    </p>
-                    <p>
-                        <input type="password" placeholder="*Passwort bestätigen" class="eingabefeld" id="conf-password">
-                        <span class="error-message" id="confpassword-error"></span>
-                    </p>
-                    <p>
-                        <input type="url" placeholder="url der Webseite" class="eingabefeld" id="reg-url">
-                        <span class="error-message" id="url-error"></span>
-                    </p>
-                    <p><button type="submit" class="btn brdoutline3" id="submit">Registrieren</button></p>
-                    <div class="checkbox">
-                        <input type="checkbox" id="Datenschutz" class="eingabefeld">
+                    <div class="mb-3">
+                        <label for="reg-name" class="form-label">Name, Vorname</label>
+                        <input type="text" pattern="[a-zA-Z]+, [a-zA-Z]+" class="form-control" id="reg-name" required>
+                        <div class="invalid-feedback">
+                            Bitte gib deinen Namen und Vornamen ein
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="reg-mail" class="form-label">E-Mail</label>
+                        <input type="email" pattern="[a-zA-Z0-9.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}" class="form-control" id="reg-mail" required>
+                        <div class="invalid-feedback">
+                            Bitte gib deine E-Mail Adresse ein
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="reg-number" class="form-label">Telefonnummer</label>
+                        <input type="number" pattern="(?:\+?\d{1,3}[\s-]?)?(?:\d{3,4}[\s-]?\d{5,8})" class="form-control" id="reg-number">
+                        <div class="invalid-feedback">
+                            Bitte gib eine gültige Telefonnummer ein
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="reg-date" class="form-label">Geburtsdatum</label>
+                        <input type="date"  class="form-control" id="reg-date" required>
+                        <div class="invalid-feedback">
+                            Du musst mindestens 18Jahre alt sein
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="reg-password" class="form-label">Passwort</label>
+                        <input type="password" pattern=".{8,}" class="form-control" id="reg-password" required>
+                        <div class="invalid-feedback">
+                            Dein Passwort muss mindestens 8 Einträge haben
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="conf-password" class="form-label">Passwort bestätigen</label>
+                        <input type="password" class="form-control" id="conf-password" required>
+                        <div class="invalid-feedback">
+                            Die Passwörter stimmen nicht überein
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="reg-url" class="form-label">url der Webseite</label>
+                        <input type="url" pattern="www\.[a-zA-Z\-]+\.[a-zA-Z]+[a-zA-Z\-\\/]" class="form-control" id="reg-url">
+                    </div>
+                    <button type="submit" class="btn brdoutline3" id="submit">Registrieren</button>
+                    <div class="form-check mb-3">
+                        <input type="checkbox" id="Datenschutz" class="form-check-input" required>
                         <label for="Datenschutz" class="datenschutzhinweis">Ich stimme den <a href="impressum.html">Datenschutzrichtlinien</a> zu</label>
-                        <span class="error-message" id="checkbox-error"></span>
+                        <div class="invalid-feedback">
+                            Du musst den Datenschutzrichtlinien zustimmen
+                        </div>
                     </div>
                  </form>
             </div>
