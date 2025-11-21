@@ -3,13 +3,17 @@ html{
     scroll-behavior: smooth;
 }
 
+:root{
+    --green: rgba(72, 136, 41, 0.763);
+    --beige: blanchedalmond;
+    --braun: #9c7648;
+}
+
 body{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    background-color: blanchedalmond;
-    color: rgba(123, 81, 20, 0.597);
+    background-color: var(--beige);
+    color: var(--braun);
     margin: 0;
-    display: flex;
-    flex-direction: column;
     text-align: center;
     min-height: 100vh;
 }
@@ -22,141 +26,73 @@ main{
 /* Layout der Überschrift*/
 header{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    background-color: rgba(123, 81, 20, 0.597);
-    color: blanchedalmond;
-    text-align: center;
-    margin-bottom: 5px;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.header-img{
-    height: 115px;
-    width: auto;
-    border-radius: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.headertitle{
-    flex: 1;
+    background-color: var(--braun);
+    color: var(--beige);
 }
 
+
 /*Navigation tab*/
-nav{
-    background-color:rgba(72, 136, 41, 0.763);
-    margin: 0;
-    gap: 20px;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+nav.navbar{
+    background-color: var(--green);
     position: sticky;
-    top: 0;
+    top: 0%;
     z-index: 1000;
 }
-.nav-img{
-    height: 50px;
-    width: auto;
-    border-radius: 5px;
+.navbar .nav-link{
+    color: var(--beige);
+    font-weight: 600;
 }
-.navigation-center a{
-    display: inline-block;
-    border-radius: 5px;
-    padding: 20px 10px;
-    text-decoration: none;
-    font-weight: bolder;
-    font-size: small;
-    color: blanchedalmond;
-    transition: background-color 0.5s;
-}
-.navigation-left{
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-.navigation-center{
-    display: flex;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    gap: 20px;
-}
-.navigation-center a:hover{
-    background-color: rgba(123, 81, 20, 0.597);
+
+.navbar .nav-link:hover{
+    background-color: var(--braun);
+    border-radius: 4px;
 }
 
 /* Karte layout */
-.map {
-    position: relative;
-    width: 1000px;
-    height: 600px;
-    margin: 20px auto;
-    background-image: url('pictures/Karte_Volkspark.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    pointer-events: none; 
-}
-
-/*marker position*/
-.marker {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: rgba(72, 136, 41, 0.763);
-    border-radius: 50%;
-    cursor: pointer;
-    pointer-events: auto; 
-    display: block;
-}
-.marker:hover {
-    transform: scale(1.3);
-    background-color: darksalmon;
+.map h2{
+    font-weight: bolder;
 }
 
 /*Buttons*/
-.button2{
-   display: inline-block;
-    padding: 5px 10px;
-    background-color: rgba(72, 136, 41, 0.763);
-    color: blanchedalmond;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 5px; 
+
+.brdoutline2{
+    border-color: var(--green) !important;
+    color: var(--green);
 }
 
-/*SEARCH AND ADD*/
-.search-add{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 50px;
+.brdoutline{
+    border-color: rgba(72, 136, 41, 0.763) !important;
+    color: var(--green);
 }
 
-.search{
-    margin-bottom: 20px;
+.brdoutline3{
+    border-color: var(--beige) !important;
+    background-color: var(--green);
+    color: var(--beige);
+
 }
+
+.brdoutline3:hover{
+    border-color: var(--green);
+    color: var(--green);
+    box-shadow: 0 2px 4px;
+}
+
+.brdoutline:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px;
+}
+
 
 /*observation tabs*/
-.observations{
-    max-width: 1200px;
-    margin: 40px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-}
+
 .observation-card{
-    width: 25%;
     border: 2px solid rgba(123, 81, 20, 0.597);
     border-radius: 10px;
     padding: 20px;
-    /*background-color: rgba(197, 223, 244, 0.456);*/
     text-align: left;
-    transition: transform 0.3s; box-shadow: 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
 }
 .observation-card img{
     width: 100%;
@@ -166,7 +102,7 @@ nav{
     margin-bottom: 10px;
 }
 .observation-card:hover{
-    transform: scale(1.15);
+    transform: scale(1.05);
     box-shadow: 0 4px 8px;
 }
 .details{
@@ -185,7 +121,6 @@ nav{
 .table1 {
   background-color: rgba(123, 81, 20, 0.597);
   color:blanchedalmond;
-  margin: 0 auto 60px auto;
   border-radius: 5px;
   padding: 20px 40px;
 }
@@ -216,66 +151,16 @@ footer a{
 
 
 /* LOGIN TAB*/
-.login {
-    margin: 50px 0;
-}
 
-.register {
+
+#register {
     color: blanchedalmond;
     background-color: rgba(123, 81, 20, 0.597);
+    box-shadow: 0 2px 5px darkslategrey;
     border-radius: 8px;
-    padding: 20px;
-    margin: 0 10px 50px 10px;
+  
 }
 
-.register_title {
-    text-align: left;
-    margin-bottom: 20px;
-    margin-left: 50px;
-}
-
-.register_content {
-    display: flex;
-    justify-content:space-evenly;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-
-.register_content form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    flex: 1;
-    min-width: 250px;
-}
-
-.register_content form p{
-    position: relative;
-    margin-bottom: 25px;
-    width: 200px;
-}
-
-.register_content input {
-    display: block;
-    margin: 0;
-}
-
-.error-message{
-    position: absolute;
-    left: 0;
-    display: block;
-    height: 20px;
-    color:darkred;
-    font-size: x-small;
-    margin-top: 2px;
-    overflow: visible;
-    white-space: nowrap;
-    line-height: 1.2rem;
-    min-width: 250px;
-    text-align: left;
-}
 
 button[type="submit"]:disabled{
     background-color: darkgrey !important;
@@ -283,40 +168,20 @@ button[type="submit"]:disabled{
     opacity: 0.6;
 }
 
-.login .eingabefeld{
+.form-control{
     background-color: blanchedalmond;
     padding: 5px 10px;
     border-radius: 5px;
     border-color: rgba(123, 81, 20, 0.597);
     box-sizing: border-box;
+    margin: 10px;
 }
 
-.register_content .eingabefeld {
-    background-color: blanchedalmond;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border-color:  rgba(123, 81, 20, 0.597);
-    width: 100%;
-    box-sizing: border-box;
-}
 
 .datenschutzhinweis {
     padding: 5px 10px;
     font-size: small;
     display: flex;
-}
-#checkbox-error{
-    pointer-events: none;
-    position: static;
-    margin-top: 2px;
-}
-
-.checkbox{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 100;
-    pointer-events: auto;
 }
 
 .fox_laptop img {
@@ -356,70 +221,10 @@ button[type="submit"]:disabled{
 
 /*RWD*/
 /*Tablet*/
-@media screen and (max-width:1024px) {
-    .observations .observation-card{
-        width: 45%;
-    }
-    .map{
-        width: 90%;
-        height: 400px;
-    }
-    .header-img{
-        height: 80px;
-        margin: 5px;
-    }
-}
+
 /*Smartphones*/
 @media screen and (max-width:768px) {
-    .navigation-center{
-        align-items: center;
-        gap: 10px;
-    }
-    .navigation-center a{
-        font-size: 70%;
-        font-weight: bold;
-        width: 80%;
-        text-align: center;
-    }
-    .observations .observation-card{
-        width: 90%;
-        size: 90%;
-        margin: 25px;
-    }
-    .observation-card:hover{
-    transform: scale(1.05);
-    box-shadow: 0 2px 4px;
-    }
-    .map{
-        width: 100%;
-        height: 300px;
-    }
-    .header{
-        flex-direction: column;
-        text-align: center;
-        font-size: medium;
-    }
-    .header-img{
-        width: 80px;
-        height: auto;
-        margin: 10px auto;
-    }
-    .table1 {
-        background-color: rgba(123, 81, 20, 0.597);
-        color:blanchedalmond;
-        margin: 0 auto 30px auto;
-        border-radius: 5px;
-        padding: 10px 20px;
-    }
-    .tabletitle{
-        font-weight: bold;
-        padding: 10px;
-        font-size: 0.8rem;
-    }
-    .inhalt{
-        padding: 10px;
-        font-size: 0.8rem;
-    }
+    
     .login{
         flex-direction: column;
         align-items: center;
@@ -434,8 +239,5 @@ button[type="submit"]:disabled{
         width: 400px;
         height: auto;
         flex-direction: column;
-    }
-    footer{
-        text-align: center;
     }
 }

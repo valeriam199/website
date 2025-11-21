@@ -16,21 +16,30 @@ function getData(){
     fetch(url)
         .then(response => response.json())
         .then(data => {
+            console.log("API Daten erhalten:", data.results.length, "Beobachtungen");
             data.results.forEach(observation =>{
                 if (count >= 6) return;
 
                 if (!observation.geojson) return;
                 if (!observation.species_guess) return;
+                if(observation.taxon.name.toLowerCase().includes("noctua pronuba")) return;
                 if (!observation.photos || observation.photos.length === 0) return;
-                if (observation.species_guess.toLowerCase() == observation.taxon.name.toLowerCase()) return;
+                if (!observation.taxon || !observation.taxon.name) {
+                    console.log("Kein taxon.name vorhanden");
+                    return;
+                }
+
+                //if(observation.taxon.name == observation.species_guess) return;
+
                 const lon = observation.geojson.coordinates[0];
                 const lat = observation.geojson.coordinates[1];
 
                 if (lon < 13.42 || lon > 13.44 || lat < 52.52 || lat > 52.54) return;
                 console.log("Art:", observation.species_guess, "Lon:", lon, "Lat:", lat);
 
-
                 //create Observations
+                const col = document.createElement("div");
+                col.classList.add ("col-12", "col-md-6", "col-lg-4");
                 const card = document.createElement("div");
                 card.classList.add("observation-card");
                 card.dataset.category = observation.taxon.iconic_taxon_name.toLowerCase();
@@ -66,7 +75,8 @@ function getData(){
                 category.textContent = "Art: " + observation.taxon.iconic_taxon_name;
                 details.appendChild(category);
 
-                observationContainer.appendChild(card);
+                col.appendChild(card);
+                observationContainer.appendChild(col);
 
                 count++;
 
