@@ -151,55 +151,16 @@ footer a{
 
 
 /* LOGIN TAB*/
-#login {
-    margin: 50px 0;
-}
+
 
 #register {
     color: blanchedalmond;
     background-color: rgba(123, 81, 20, 0.597);
     box-shadow: 0 2px 5px darkslategrey;
     border-radius: 8px;
-    padding: 20px;
-    margin: 0 10px 50px 10px;
+  
 }
 
-#register_title {
-    margin-bottom: 20px;
-    margin-left: 50px;
-}
-
-#register_content {
-    gap: 40px;
-}
-
-#register_content form {
-    gap: 5px;
-    min-width: 250px;
-}
-
-#register_content form p{
-    margin-bottom: 25px;
-}
-
-#register_content input {
-    margin: 0;
-}
-
-.error-message{
-    position: absolute;
-    left: 0;
-    display: block;
-    height: 20px;
-    color:darkred;
-    font-size: x-small;
-    margin-top: 2px;
-    overflow: visible;
-    white-space: nowrap;
-    line-height: 1.2rem;
-    min-width: 250px;
-    text-align: left;
-}
 
 button[type="submit"]:disabled{
     background-color: darkgrey !important;
@@ -207,7 +168,7 @@ button[type="submit"]:disabled{
     opacity: 0.6;
 }
 
-#login .eingabefeld{
+.form-control{
     background-color: blanchedalmond;
     padding: 5px 10px;
     border-radius: 5px;
@@ -216,32 +177,11 @@ button[type="submit"]:disabled{
     margin: 10px;
 }
 
-#register_content .eingabefeld {
-    background-color: blanchedalmond;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border-color:  rgba(123, 81, 20, 0.597);
-    width: 100%;
-    box-sizing: border-box;
-}
 
 .datenschutzhinweis {
     padding: 5px 10px;
     font-size: small;
     display: flex;
-}
-#checkbox-error{
-    pointer-events: none;
-    position: static;
-    margin-top: 2px;
-}
-
-.checkbox{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 100;
-    pointer-events: auto;
 }
 
 .fox_laptop img {
