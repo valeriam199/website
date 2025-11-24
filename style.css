@@ -113,8 +113,22 @@ nav.navbar{
     margin-top: 10px;
     font-size: 0.9rem;
 }
+.observation-card.show-details .details {
+    display: block;
+}
 #loading-button{
     z-index: 1;
+}
+.highlight{
+    outline: 4px var(--green);
+    box-shadow: 0 4px 8px;
+    transform: scale(1.05);
+}
+
+/*sidebar*/
+#mapid{
+    height: 400px;
+    width: 100%;
 }
 
 /*Filtertabelle*/
