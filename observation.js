@@ -194,6 +194,40 @@ function getData(){
 
 getData();
 
+//Export button and function
+const exportButton = document.getElementById("exportButton");
+
+exportButton.addEventListener("click", function(){
+    
+    const cards = document.querySelectorAll(".observation-card");
+
+    const exportData = [];
+ 
+    cards.forEach(card => {
+        const paragraphs = card.querySelectorAll(".details p");
+
+        const exportLatinName = paragraphs[0].textContent.split(": ")[1];
+        const exportDate = paragraphs[1].textContent.split(": ")[1];
+        const exportLocation= {
+            lat: card.dataset.lat,
+            lon: card.dataset.lon
+        };
+        exportData.push({
+            latinName: exportLatinName,
+            date: exportDate,
+            location: exportLocation
+        });
+    });
+    
+    const jsonString = JSON.stringify(exportData, null, 2);
+
+    fetch('http://localhost:8081/export',{
+        method: 'POST',
+        body: jsonString
+    });
+});
+
+
 //more observation cards
 loadingButton.addEventListener("click", ()=>{
     currentPage++;
